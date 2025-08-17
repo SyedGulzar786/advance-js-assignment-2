@@ -47,3 +47,23 @@
 // console.log(getTiming(), "from app.js");
 // console.log(appUserName, "from app.js");
 // console.log(all, "from app.js");
+
+fetch("https://fakestoreapi.com/products")     
+.then((res)=>res.json())
+.then((res)=>console.log(res));
+
+fetch("https://fakestoreapi.com/products/categories")     
+.then((res)=>res.json())
+.then((res)=>console.log(res));
+
+fetch("https://fakestoreapi.com/products/category/jewelery")     
+.then((res)=>res.json())
+.then((res)=>console.log(res));
+
+fetch("https://jsonplaceholder.typicode.com/posts/1")     
+.then((response)=>response.json())
+.then((json)=>console.log(json));
+
+fetch("https://jsonplaceholder.typicode.com/todos/1")     
+.then((response)=>response.json())
+.then((json)=>console.log(json));
