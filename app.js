@@ -12,17 +12,22 @@
 
 // let getdata = data
 
-ternary operator example
-let marks = 5;
-let type = marks >= 20 ? "eligible" : marks >=10 ? "retest" : "not eligible";
-console.log(type)
+// ternary operator example
+// let marks = 5;
+// let type = marks >= 20 ? "eligible" : marks >=10 ? "retest" : "not eligible";
+// console.log(type)
 
-let markn = 0;
-let resultn = marks && "notavailable";
-console.log(resultn);
+// let markn = 0;
+// let resultn = marks && "notavailable";
+// console.log(resultn);
 
-let marko = 0;
-let resulto = marks || "notavailable";
-console.log(resultn);
+// let marko = 0;
+// let resulto = marks || "notavailable";
+// console.log(resultn);
 
-
+// function example(){
+//     return condition1 ? value1
+//     : condition2 ? value2
+//     : condition3 ? value3
+//     : value4;
+// }
