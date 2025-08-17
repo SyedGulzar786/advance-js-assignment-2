@@ -31,3 +31,9 @@
 //     : condition3 ? value3
 //     : value4;
 // }
+
+// nullih coalescing operator example --> ??
+// --> checking only null and undefined values
+// let mark = 0;
+// let result = mark ?? "not available";
+// console.log(result);
