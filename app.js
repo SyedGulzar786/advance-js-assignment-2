@@ -37,3 +37,10 @@
 // let mark = 0;
 // let result = mark ?? "not available";
 // console.log(result);
+
+import {getdate, getTime, appName} from "./home.js";
+import masking from "./home.js";
+console.log(masking, "from app.js");    
+console.log(getdate(), "from app.js");
+console.log(getTime(), "from app.js")
+console.log(appName, "from app.js")
