@@ -38,9 +38,12 @@
 // let result = mark ?? "not available";
 // console.log(result);
 
-import {getdate, getTime, appName} from "./home.js";
+import {getdate, getTime as getTiming} from "./home.js";
 import masking from "./home.js";
+import{ appName as appUserName} from "./home.js";
+import * as all from "./home.js";
 console.log(masking, "from app.js");    
 console.log(getdate(), "from app.js");
-console.log(getTime(), "from app.js")
-console.log(appName, "from app.js")
+console.log(getTiming(), "from app.js");
+console.log(appUserName, "from app.js");
+console.log(all, "from app.js");
