@@ -48,22 +48,67 @@
 // console.log(appUserName, "from app.js");
 // console.log(all, "from app.js");
 
+// fetch("https://fakestoreapi.com/products")     
+// .then((res)=>res.json())
+// .then((res)=>console.log(res));
+
+// fetch("https://fakestoreapi.com/products/categories")     
+// .then((res)=>res.json())
+// .then((res)=>console.log(res));
+
+// fetch("https://fakestoreapi.com/products/category/jewelery")     
+// .then((res)=>res.json())
+// .then((res)=>console.log(res));
+
+// fetch("https://jsonplaceholder.typicode.com/posts/1")     
+// .then((response)=>response.json())
+// .then((json)=>console.log(json));
+
+// fetch("https://jsonplaceholder.typicode.com/todos/1")     
+// .then((response)=>response.json())
+// .then((json)=>console.log(json));
+
+
+// situation show data from fetch to the consoel below
 fetch("https://fakestoreapi.com/products")     
 .then((res)=>res.json())
 .then((res)=>console.log(res));
 
-fetch("https://fakestoreapi.com/products/categories")     
+console.log('show the data here');
+
+// solutiomn 1 --> not a profretional solution and not recommended
+let products;
+
+fetch("https://fakestoreapi.com/products")     
 .then((res)=>res.json())
-.then((res)=>console.log(res));
+.then((res)=> {products = res;});
 
-fetch("https://fakestoreapi.com/products/category/jewelery")     
+setTimeout(() =>{
+    console.log(products, "from setTimeout");
+},5000)
+
+// issue--> .then is asynchronous so before the data is fetch the console was working so we use settimeout to prevent that but still its not a profetional way to do that
+
+// solution 2 --> callback function
+
+let getData = (cb) =>{
+ fetch("https://fakestoreapi.com/products")     
 .then((res)=>res.json())
-.then((res)=>console.log(res));
+.then((res)=> cb(res));
+};
 
-fetch("https://jsonplaceholder.typicode.com/posts/1")     
-.then((response)=>response.json())
-.then((json)=>console.log(json));
-
-fetch("https://jsonplaceholder.typicode.com/todos/1")     
-.then((response)=>response.json())
-.then((json)=>console.log(json));
+getData((data)=>{
+    console.log(data, "from callback function");
+})
+getData((data)=>{
+    console.log(data, "from callback function");
+})
+getData((data)=>{
+    console.log(data, "from callback function");
+})
+getData((data)=>{
+    console.log(data, "from callback function");
+})
+getData((data)=>{
+    console.log(data, "from callback function");
+})
