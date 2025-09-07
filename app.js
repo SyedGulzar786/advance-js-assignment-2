@@ -120,10 +120,10 @@
 
 // to get current locationo thorugh js
 // navigator
-console.log(navigator, "from navigator");
+// console.log(navigator, "from navigator");
 
 // there is a method in this object called geolocation 
-console.log(navigator.geolocation, "from geolocation");
+// console.log(navigator.geolocation, "from geolocation");
 
 // further init getCurrentPosition() method
 // console.log(navigator.geolocation.getCurrentPosition());
@@ -135,9 +135,67 @@ console.log(navigator.geolocation, "from geolocation");
 // 1st parameter is success callback function
 // 2nd parameter is error callback function
 // 3rd parameter is options object
-console.log(navigator.geolocation.getCurrentPosition((location)=>{
-console.log(location, "from location")
-}))
+// console.log(navigator.geolocation.getCurrentPosition((location)=>{
+// console.log(location, "from location")
+// }))
 
 // weather api
 // api = https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+
+// promises
+// A Promise in JavaScript is like a "container" for something that will happen in the future.
+
+// Imagine you order food online 🍔 →
+
+// You don’t get the food immediately.
+
+// The restaurant promises to deliver it.
+
+// While waiting, you can keep doing other things.
+
+// Later, the promise will be:
+// ✅ Resolved (fulfilled) = food delivered.
+// ❌ Rejected = delivery failed.
+
+// So:
+
+// Pending → still waiting
+
+// Resolved → success
+
+// Rejected → failed
+
+
+// Creating a Promise -->
+const myPromsie1 = new Promise((resolve, reject) => {
+    let footReady = true; // change to false to test reject
+
+    if (footReady) {
+        resolve("food delivered");
+    } else {
+        reject("delivery failed");
+    };
+
+});
+
+// useit:
+myPromsie1
+.then((result)=>{console.log(result, " from myPromise1")})
+.catch((err)=>{console.log(err," from myPromise1")})
+
+
+const myPromsie2 = new Promise((resolve, reject) => {
+    let footReady = false; // change to true to test resolve
+
+    if (footReady) {
+        resolve("food delivered");
+    } else {
+        reject("delivery failed");
+    };
+
+});
+
+myPromsie2
+.then((result)=>{console.log(result, " from myPromise2")})
+.catch((err)=>{console.log(err," from myPromise2")})
