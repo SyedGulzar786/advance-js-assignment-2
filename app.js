@@ -206,7 +206,19 @@
 // fetch
 //  itself returns a Promise
 
-fetch("https://fakestoreapi.com/products")
-.then(res=>res.json())
-.then(data=>console.log(data, "from fetch api"))
-.catch(err=>console.log(err, "from fetch api"));
+// fetch("https://fakestoreapi.com/products")
+// .then(res=>res.json())
+// .then(data=>console.log(data, "from fetch api"))
+// .catch(err=>console.log(err, "from fetch api"));
+
+// more cleaner and easiest way mroe better recommended 
+const getData = async () => {
+try{
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+    console.log(data, "from async await");
+} catch(err){
+    console.log(err, "from async await");
+}
+}
+getData();
