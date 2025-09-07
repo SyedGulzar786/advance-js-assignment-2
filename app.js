@@ -70,45 +70,74 @@
 
 
 // situation show data from fetch to the consoel below
-fetch("https://fakestoreapi.com/products")     
-.then((res)=>res.json())
-.then((res)=>console.log(res));
+// fetch("https://fakestoreapi.com/products")     
+// .then((res)=>res.json())
+// .then((res)=>console.log(res));
 
-console.log('show the data here');
+// console.log('show the data here');
 
 // solutiomn 1 --> not a profretional solution and not recommended
-let products;
+// let products;
 
-fetch("https://fakestoreapi.com/products")     
-.then((res)=>res.json())
-.then((res)=> {products = res;});
+// fetch("https://fakestoreapi.com/products")     
+// .then((res)=>res.json())
+// .then((res)=> {products = res;});
 
-setTimeout(() =>{
-    console.log(products, "from setTimeout");
-},5000)
+// setTimeout(() =>{
+//     console.log(products, "from setTimeout");
+// },5000)
 
 // issue--> .then is asynchronous so before the data is fetch the console was working so we use settimeout to prevent that but still its not a profetional way to do that
 
 // solution 2 --> callback function
 
-let getData = (cb) =>{
- fetch("https://fakestoreapi.com/products")     
-.then((res)=>res.json())
-.then((res)=> cb(res));
-};
+// let getData = (cb) =>{
+//  fetch("https://fakestoreapi.com/products")     
+// .then((res)=>res.json())
+// .then((res)=> cb(res));
+// };
 
-getData((data)=>{
-    console.log(data, "from callback function");
-})
-getData((data)=>{
-    console.log(data, "from callback function");
-})
-getData((data)=>{
-    console.log(data, "from callback function");
-})
-getData((data)=>{
-    console.log(data, "from callback function");
-})
-getData((data)=>{
-    console.log(data, "from callback function");
-})
+// getData((data)=>{
+//     console.log(data, "from callback function");
+// })
+// getData((data)=>{
+//     console.log(data, "from callback function");
+// })
+// getData((data)=>{
+//     console.log(data, "from callback function");
+// })
+// getData((data)=>{
+//     console.log(data, "from callback function");
+// })
+// getData((data)=>{
+//     console.log(data, "from callback function");
+// })
+
+// issue --> callback hell and not a profetional way to do that, if we got multiple api like product and categories and prodcuts got fetched before categories this will create a problem so we need to then call apis callback inside a call back to got apis fetched one after other this could be lead to call back hell and cause issue to track api request and errors to prevent this we got promises
+
+// solution 3 -->ES-6 promises 
+// tasks-> 1.) weather app 2.) news app 3.) ecommerce app 4.) chat app 5.) football score app 6.) movie app 7.) recipe app 8.) book finder app 9.) currency converter app 10.) task manager app
+
+// to get current locationo thorugh js
+// navigator
+console.log(navigator, "from navigator");
+
+// there is a method in this object called geolocation 
+console.log(navigator.geolocation, "from geolocation");
+
+// further init getCurrentPosition() method
+// console.log(navigator.geolocation.getCurrentPosition());
+
+// this method take a callback function as a parameter to show the location
+// asks a permission from the user to access the location
+// if allowed it will show the location object with lat and long
+// if denied it will show an error
+// 1st parameter is success callback function
+// 2nd parameter is error callback function
+// 3rd parameter is options object
+console.log(navigator.geolocation.getCurrentPosition((location)=>{
+console.log(location, "from location")
+}))
+
+// weather api
+// api = https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
