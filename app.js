@@ -168,34 +168,45 @@
 
 
 // Creating a Promise -->
-const myPromsie1 = new Promise((resolve, reject) => {
-    let footReady = true; // change to false to test reject
+// const myPromsie1 = new Promise((resolve, reject) => {
+//     let footReady = true; // change to false to test reject
 
-    if (footReady) {
-        resolve("food delivered");
-    } else {
-        reject("delivery failed");
-    };
+//     if (footReady) {
+//         resolve("food delivered");
+//     } else {
+//         reject("delivery failed");
+//     };
 
-});
+// });
 
 // useit:
-myPromsie1
-.then((result)=>{console.log(result, " from myPromise1")})
-.catch((err)=>{console.log(err," from myPromise1")})
+// myPromsie1
+// .then((result)=>{console.log(result, " from myPromise1")})
+// .catch((err)=>{console.log(err," from myPromise1")})
 
 
-const myPromsie2 = new Promise((resolve, reject) => {
-    let footReady = false; // change to true to test resolve
+// const myPromsie2 = new Promise((resolve, reject) => {
+//     let footReady = false; // change to true to test resolve
 
-    if (footReady) {
-        resolve("food delivered");
-    } else {
-        reject("delivery failed");
-    };
+//     if (footReady) {
+//         resolve("food delivered");
+//     } else {
+//         reject("delivery failed");
+//     };
 
-});
+// });
 
-myPromsie2
-.then((result)=>{console.log(result, " from myPromise2")})
-.catch((err)=>{console.log(err," from myPromise2")})
+// myPromsie2
+// .then((result)=>{console.log(result, " from myPromise2")})
+// .catch((err)=>{console.log(err," from myPromise2")})
+
+
+// 🟢 Using Promise with APIs (fetch)
+// When you fetch data from an API, it takes time (like ordering food).
+// fetch
+//  itself returns a Promise
+
+fetch("https://fakestoreapi.com/products")
+.then(res=>res.json())
+.then(data=>console.log(data, "from fetch api"))
+.catch(err=>console.log(err, "from fetch api"));
