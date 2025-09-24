@@ -225,25 +225,29 @@ const { useEffect } = require("react");
 // }
 // getData();
 
+
+
+// Function inside useEffect + call it.
 useEffect(()=>{
     const getData = async () => {
-      try{
-          const res = await fetch("https://fakestoreapi.com/products");
-        const data = await res.json();
-        console.log("data", data)
-      }catch(err){
-        console.log("err", err);
-      };
+        try{
+            const res = await fetch("https://fakestoreapi.com/products");
+            const data = await res.json();
+            console.log("data", data)
+        }catch(err){
+            console.log("err", err);
+        };
     };
     getData();
 },[]);
 
 
+// Function outside useEffect + call it.
 const getData = async () => {
     try{
-const res = await fetch("https://fakestoreapi.com/products");
-const data = await res.json();
-console.log("data", data)
+        const res = await fetch("https://fakestoreapi.com/products");
+        const data = await res.json();
+        console.log("data", data)
     }catch(err){
         console.log("err",err);
     };
@@ -252,3 +256,17 @@ console.log("data", data)
 useEffect(()=>{
     getData();
 },[])
+
+
+// IIFE directly inside useEffect.
+useEffect(()=>{
+    (async()=>{
+        try{
+const res = await fetch("https://fakestoreapi.com/products");
+const data = await res.json();
+console.log("data",data);
+        }catch(err){
+            console.log("err",err);
+        };
+    })();
+},[]);
