@@ -237,3 +237,18 @@ useEffect(()=>{
     };
     getData();
 },[]);
+
+
+const getData = async () => {
+    try{
+const res = await fetch("https://fakestoreapi.com/products");
+const data = await res.json();
+console.log("data", data)
+    }catch(err){
+        console.log("err",err);
+    };
+};
+
+useEffect(()=>{
+    getData();
+},[])
