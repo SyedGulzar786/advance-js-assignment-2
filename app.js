@@ -3,6 +3,8 @@
 // .then((res)=>console.log(res))
 // .catch((err)=>console.log(err));
 
+const { useEffect } = require("react");
+
 // let data = new Promise(
 //     fetch("api")
 //     .then((res)=>res.json)
@@ -212,13 +214,26 @@
 // .catch(err=>console.log(err, "from fetch api"));
 
 // more cleaner and easiest way mroe better recommended 
-const getData = async () => {
-try{
-    const res = await fetch("https://fakestoreapi.com/products");
-    const data = await res.json();
-    console.log(data, "from async await");
-} catch(err){
-    console.log(err, "from async await");
-}
-}
-getData();
+// const getData = async () => {
+// try{
+//     const res = await fetch("https://fakestoreapi.com/products");
+//     const data = await res.json();
+//     console.log(data, "from async await");
+// } catch(err){
+//     console.log(err, "from async await");
+// }
+// }
+// getData();
+
+useEffect(()=>{
+    const getData = async () => {
+      try{
+          const res = await fetch("https://fakestoreapi.com/products");
+        const data = await res.json();
+        console.log("data", data)
+      }catch(err){
+        console.log("err", err);
+      };
+    };
+    getData();
+},[]);
