@@ -286,11 +286,29 @@ let getProducts = () => {
     }); 
 }
 
+let getCategories = () => {
+    return new Promise((resolve, reject ) => {
+fetch("https://fakestoreapi.com/products/categories")
+.then(async ( res ) => { resolve( await res.json())})
+.catch((err )=>{reject(err)})
+    });
+}
+
+
+
 let getData = async () => {
     try {
+        let promises = [];
+        promises.push(getProducts(), getCategories())
+        console.log("promises", promises);
+
+        let final = await Promise.all(promises)
+        console.log("final", final);
+
         // let products = await data;
         let products = await getProducts();
-        console.log(products);
+        let categories = await getCategories();
+        console.log(products, categories);
     } catch (err) {
         console.error(err);
     };
