@@ -272,6 +272,8 @@
 // }, []);
 
 
+
+// creating promises 
 let getProducts = () => {
     return new Promise((resolve, reject) => {
         // rej("resjhgjhgjgjhgjhgolve");
@@ -295,6 +297,7 @@ fetch("https://fakestoreapi.com/products/categories")
 }
 
 
+// resolvoing inside a function 
 
 let getData = async () => {
     try {
@@ -314,6 +317,8 @@ let getData = async () => {
     };
 };
 getData();
+
+// resolving outside a function 
 
 getProducts().then((res)=>console.log("res",res));
 
